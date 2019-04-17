@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <!-- IE11 support -->
+  <script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.2.7/webcomponents-loader.js" nomodule></script>
+  <title>Document</title>
+  <style>
+    :root {
+      --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+      --col1: #313741;
+      --col2: #f8ad42;
+      --col3: #6bb884;
+      --col4: #c26b49;
+
+      --waiting: '\A.\A..\A...';
+      /*
+  --logo: url('devoxx.png');
+  --bgHome: url('web-components.svg');
+  --bgMd: url('background_white_v1.png');
+*/
+    }
+
+    body {
+      font-family: var(--font);
+      background-image: url('./assets/background_v1.png');
+      margin: 0;
+    }
+
+    h1 {
+      margin: 0;
+      padding: .25em;
+      color: var(--col1);
+      background-color: white;
+      background-image: url('./assets/devoxx.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center right;
+      background-origin: content-box;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>LitElement Workshop</h1>
+  <main-app current="0"></main-app>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+.checkerboard {
+  display: grid;
+  border: .5em outset;
+  text-align: center;
+}
+.checkerboard .dark,
+.checkerboard .light {
+  font-family: monaco, monospace;
+  padding: .125em;
+  min-width: 3ch;
+  min-height: 3ch;
+  line-height: 3ch;
+  font-size: .75em;
+  display: flex;
+  justify-content: center;
+}
+.checkerboard .dark {
+  background-color: black;
+  color: hsla(0, 100%, 100%, .35);
+}
+.checkerboard .light {
+  background-color: white;
+  color: rgba(0, 0, 0, .25);
+}

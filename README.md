@@ -18,4 +18,4 @@ Prepare your environnement
 4. Then go into `lit-element` and run `npm ci`
 
 
-Wait the Hands-on for further instructions.
+Open <https://devoxx-fr-2019-webcomponents.firebaseapp.com/>, choose your exercise and follow instructions.

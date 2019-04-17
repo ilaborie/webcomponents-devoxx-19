@@ -1,0 +1,216 @@
+@import url("https://fonts.googleapis.com/css?family=Permanent+Marker");
+
+:root {
+	--font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+	--col1: #313741;
+	--col2: #f8ad42;
+	--col3: #6bb884;
+	--col4: #c26b49;
+
+	--logo: url('devoxx.png');
+	--bgHome: url('web-components.svg');
+	--bgMd: url('background_white_v1.png');
+}
+
+body {
+	font-family: var(--font);
+	background: url('background_v1.png');
+	color: var(--col1);
+	height: 100vh;
+	margin: 0;
+	/* display: grid; */
+}
+
+#exo-8:target ~ .playground {
+	display: none;
+}
+
+#exo-8:target ~ #mocha {
+	display: none;
+}
+
+/* playground */
+.playground {
+	margin: .5rem;
+	padding: .25rem;
+	border: 1em solid transparent;
+	background: linear-gradient(white, white) padding-box,
+		repeating-linear-gradient(-45deg, black 0, black 25%,
+		gold 0, gold 50%) 0 / 4em 4em;
+	color: #333;
+	animation: ants 180s linear infinite;
+	border-radius: .25em;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	min-height: 8em;
+}
+
+.playground:empty::before {
+	content: 'Fill .playground ...';
+	color: rgba(0, 0, 0, .5);
+}
+
+@keyframes ants {
+	to {
+		background-position: 100% 100%
+	}
+}
+
+/* Tests */
+.test-playground {
+	display: none;
+}
+
+#mocha {
+	background: white;
+	padding: .25em;
+	color: #333;
+}
+
+#mocha-stats {
+	position: initial;
+	top: unset;
+	bottom: 0;
+}
+
+#mocha .test a.replay {
+	display: none;
+}
+
+#mocha a {
+	pointer-events: none;
+}
+
+/* Checkerboard */
+.checkerboard {
+	display: grid;
+	border: .5em outset;
+	/*  */
+	text-align: center;
+}
+
+.checkerboard .dark,
+.checkerboard .light {
+	font-family: monaco, monospace;
+	padding: .125em;
+	min-width: 3ch;
+	min-height: 3ch;
+	line-height: 3ch;
+	font-size: .75em;
+	display: flex;
+	justify-content: center;
+}
+
+.checkerboard .dark {
+	background-color: var(--dark, black);
+	color: hsla(0, 100%, 100%, .35);
+}
+
+.checkerboard .light {
+	background-color: var(--light, white);
+	color: rgba(0, 0, 0, .25);
+}
+
+/* Checkerboard 2 */
+.playground .form {
+	margin: 0 1em;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-self: stretch;
+}
+
+/* countdown */
+hello-countdown>*>div {
+	display: none;
+}
+
+hello-countdown header {
+	font-size: 2em;
+}
+
+hello-countdown .idle .idle,
+hello-countdown .run .run,
+hello-countdown .done .done {
+	display: initial;
+}
+
+hello-countdown .run .run header {
+	display: inline-block;
+	overflow: hidden;
+	height: 1.3em;
+	margin-top: -0.3em;
+	line-height: 1.5em;
+	vertical-align: text-bottom;
+}
+
+hello-countdown .run .run header::after {
+	margin-left: .25em;
+	content: "\A.\A..\A...";
+	animation: spin4 1s steps(4) infinite;
+	display: inline-table;
+	white-space: pre;
+	text-align: left;
+}
+
+@keyframes spin4 {
+	to {
+		transform: translateY(-6.0em);
+	}
+}
+
+.playground .state {
+	font-size: 3em;
+}
+
+.playground .state.idle::before {
+	content: '😴';
+}
+
+.playground .state.run::before {
+	content: '⏰';
+}
+
+.playground .state.done::before {
+	content: '🎊';
+}
+
+/* shadow-dom */
+.playground input {
+	margin: 1em;
+}
+
+.card {
+	-webkit-text-fill-color: transparent;
+	-webkit-background-clip: text;
+	background-image: linear-gradient(315deg, red, orange, green, teal, blue, indigo, magenta);
+	background-size: 200% 200%;
+	animation: rainbow 5s linear infinite;
+	font-size: 2em;
+	padding: 1em;
+	color: magenta;
+}
+
+@keyframes rainbow {
+	0% {
+		background-position: 0% 15%;
+	}
+
+	50% {
+		background-position: 100% 86%;
+	}
+
+	100% {
+		background-position: 0% 15%;
+	}
+}
+
+.card::before,
+.card::after {
+	font-size: 3em;
+	content: '🦄';
+	padding: .5em;
+}

@@ -1,0 +1,5 @@
+stencil-todolist {
+    display: block;
+    border: 2px dashed black;
+    padding: 5px 5px 0 5px;
+}
