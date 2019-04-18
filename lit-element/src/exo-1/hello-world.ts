@@ -1,10 +1,11 @@
 import { LitElement, html, customElement } from "lit-element";
 
-// TODO Steps 1 & 2
-export class HelloWorld {
+// Steps 1 & 2
+@customElement("hello-world")
+export class HelloWorld extends LitElement {
 
-    // TODO Step 3
+    // Step 3
     render() {
-        return html``;
+        return html`<div>Hello World!</div>`;
     }
 }
