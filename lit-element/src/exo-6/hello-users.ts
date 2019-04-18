@@ -33,7 +33,15 @@ export class HelloUsers extends LitElement {
     }
 
     render() {
-        // TODO Step 2
-        return html`...`;
+        // Step 2
+        return html`${repeat(
+            this.users,
+            user => user.name,
+            user =>
+                html`<hello-card>
+                        <span slot="title">${user.name}</span>
+                        <span slot="subtitle">${user.location}</span>
+                        <span slot="content">${user.bio}</span>
+                    </hello-card>`)}`;
     }
 }

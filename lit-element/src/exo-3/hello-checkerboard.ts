@@ -10,7 +10,9 @@ interface Cell {
 export class HelloCheckerBoard extends LitElement {
 
     // TODO Step 1
-    size;
+    @property() size: number = 4;
+    @property() dark: string = '';
+    @property() light: string = '';
 
     get cells(): Cell[] {
         const result: Cell[] = [];
@@ -27,6 +29,7 @@ export class HelloCheckerBoard extends LitElement {
 .checkerboard {
     display: grid;
     border: .5em outset;
+    /*  */
     text-align: center;
 }
 
@@ -63,6 +66,8 @@ export class HelloCheckerBoard extends LitElement {
         <style>
 :host {
      /* TODO Step 3 */
+    --light: ${this.light};
+    --dark: ${this.dark};
 }
         </style>
         <div class="checkerboard" style=${gridStyle}>

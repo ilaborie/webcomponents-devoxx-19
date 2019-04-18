@@ -11,7 +11,15 @@ export class HelloTimer extends LitElement {
         return html`<div>${this.time}</div>`;
     }
 
-    // TODO Step 1
+    // Step 1
+    connectedCallback() {
+        super.connectedCallback();
+        this.intervalId = setInterval(() => this.time++, 1000);
+    }
 
-    // TODO Step 2
+    // Step 2
+    disconnectedCallback() {
+        clearInterval(this.intervalId);
+        super.disconnectedCallback();
+    }
 }

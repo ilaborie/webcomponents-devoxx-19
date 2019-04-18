@@ -53,14 +53,17 @@ export class HelloCard extends LitElement {
 <div>
     <div class="header">
         <h2>
-            <!-- TODO Step 1 -->
+            <!-- Step 1 -->
+            <slot name="title"></slot>
         </h2>
         <h3 class="subtitle">
-            <!-- TODO Step 1 -->
+            <!-- Step 1 -->
+            <slot name="subtitle"></slot>
         </h3>
     </div>
     <div class="content">
-        <!-- TODO Step 1 -->
+        <!-- Step 1 -->
+        <slot name="content"></slot>
     </div>
 </div>`;
     }

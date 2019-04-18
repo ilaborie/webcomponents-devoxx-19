@@ -25,15 +25,34 @@ class Checkerboard2 extends HTMLElement {
     }
 
     connectedCallback() {
-        // TODO Step 1
+        // Step 1
+        this.update();
     }
 
-    // TODO Step 2
-    static get observedAttributes(): string[] {
-        return [];
+    // Step 2
+    static get observedAttributes() {
+        return ['size', 'dark', 'light'];
     }
 
-    // TODO Step 3
+    // Step 3
+    attributeChangedCallback(name: string, oldValue: string, newValue: string) {
+        switch (name) {
+            case 'size':
+                this.size = +newValue;
+                this.update();
+                break;
+            case 'dark':
+                this.dark = newValue;
+                this.update();
+                break;
+            case 'light':
+                this.light = newValue;
+                this.update();
+                break;
+            default:
+                console.warn('Unhandled attribute:', name);
+        }
+    }
 
     update() {
         const {size, dark, light} = this;

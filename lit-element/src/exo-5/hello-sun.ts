@@ -38,7 +38,10 @@ blockquote span::before {
 }`;
     }
 
-    // TODO Step 1
+    // Step 1
+    createRenderRoot() {
+        return this;
+    }
 
     render() {
         return html`

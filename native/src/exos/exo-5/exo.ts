@@ -10,7 +10,8 @@ export class Countdown extends HTMLElement {
 
     set count(newCount: number) {
         this._count = newCount;
-        // TODO Step 1
+        // Step 1
+        this.update();
     }
 
     private div: HTMLDivElement;
@@ -25,8 +26,10 @@ export class Countdown extends HTMLElement {
 
     private set state(newState: CountdownState) {
         this._state = newState;
-        // TODO Step 1
-        // TODO Step 7
+        // Step 1
+        this.update();
+        // Step 7
+        this.triggerState();
     }
 
     constructor() {
@@ -34,7 +37,9 @@ export class Countdown extends HTMLElement {
     }
 
     triggerState() {
-        // TODO Step 7
+        // Step 7
+        const event = new CustomEvent('state', {detail: this.state});
+        this.dispatchEvent(event);
     }
 
     connectedCallback() {
@@ -45,11 +50,17 @@ export class Countdown extends HTMLElement {
 
         this.div = this.querySelector('div');
 
-        // TODO Step 2
+        // Step 2
+        this.input = this.querySelector('.idle input');
+        this.input.addEventListener('change', updateCount);
 
-        // TODO Step 3
+        // Step 3
+        this.querySelector('.idle button')
+            .addEventListener('click', start);
 
-        // TODO Step 5
+        // Step 5
+        this.querySelector('.done button')
+            .addEventListener('click', reset);
     }
 
     static get observedAttributes() {
@@ -78,16 +89,19 @@ export class Countdown extends HTMLElement {
 
     start = () => {
         console.log('Start');
-        // TODO Step 4
+        // Step 4
+        this.state = 'run';
 
         setTimeout(() => {
-            // TODO Step 4
+            // Step 4
+            this.state = 'done';
         }, 1000 * this.count);
     };
 
     reset = () => {
         console.log('Reset');
-        // TODO Step 6
+        // Step 6
+        this.state = 'idle';
     };
     updateCount = (event: Event) => {
         this.count = +(event.target as HTMLInputElement).value;

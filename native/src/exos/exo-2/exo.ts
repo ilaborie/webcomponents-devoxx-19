@@ -3,9 +3,16 @@ class HelloLiveCycle extends HTMLElement {
         super();
     }
 
-    // TODO Step 1
+    // Step 1
+    connectedCallback() {
+        this.render();
+        console.log('connected');
+    }
 
-    // TODO Step 2
+    // Step 2
+    disconnectedCallback() {
+        console.log('disconnected');
+    }
 
     render() {
         this.innerHTML = '<div>Connected!</div>';

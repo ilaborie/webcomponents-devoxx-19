@@ -7,8 +7,9 @@ interface Cell {
 class Checkerboard extends HTMLElement {
 
     get size(): number {
-        // TODO Step 1
-        return 42;
+        // Step 1
+        const sSize = this.getAttribute('size');
+        return +sSize;
     }
 
     get cells(): Cell[] {
@@ -30,8 +31,9 @@ class Checkerboard extends HTMLElement {
     }
 
     private template() {
-        // TODO Step 2
-        const gridStyle = ``;
+        // Step 2
+        const gridTemplate = `repeat(${this.size}, 1fr)`;
+        const gridStyle = `grid-template: ${gridTemplate} / ${gridTemplate};`;
 
         const cellClass = (cell: Cell) => cell.dark ? 'dark' : 'light';
 

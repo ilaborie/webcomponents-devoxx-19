@@ -14,25 +14,35 @@ export class HelloCountdown extends LitElement {
 
     start = () => {
         console.log('Start');
-        // TODO Step 3
+        // Step 3
+        this.state = 'run';
 
         setTimeout(() => {
             console.log('Done');
-            // TODO Step 3
+            // Step 3
+            this.state = 'done';
         }, 1000 * this.count);
     };
 
     reset = () => {
         console.log('Reset');
-        // TODO Step 5
+        // Step 5
+        this.state = 'idle';
     };
 
     triggerState() {
-        // TODO Step 6
+        // Step 6
+        const event = new CustomEvent('state', { detail: this.state });
+        this.dispatchEvent(event);
     }
 
-    // TODO Step 7
-    
+    // Step 7
+    updated(changedProperties: Map<keyof HelloCountdown, any>) {
+        if (changedProperties.has("state")) {
+            this.triggerState();
+        }
+    }
+
     render() {
         const { count, state, start, reset, updateCount } = this;
         return html`
@@ -41,19 +51,19 @@ export class HelloCountdown extends LitElement {
                 <header>Countdown</header>
                 <label>
                     in seconds
-                    <!-- TODO Step 1 -->
-                    <input type="number" min="1" max="10" value=${count}  >
+                    <!-- Step 1 -->
+                    <input type="number" min="1" max="10" value=${count} @change=${updateCount}>
                 </label>
-                <!-- TODO Step 2 -->
-                <button  >Start</button>
+                <!-- Step 2 -->
+                <button @click=${start}>Start</button>
             </div>
             <div class="run">
                 <header>Running</header>
             </div>
             <div class="done">
                 <header>Done</header>
-                <!-- TODO Step 4 -->
-                <button  >Reset</button>
+                <!-- Step 4 -->
+                <button @click=${reset}>Reset</button>
             </div>
         </div>`;
     }
